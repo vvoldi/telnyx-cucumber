@@ -19,19 +19,19 @@ jobs:
       - name: run test
         run: npm run test # Our name of the headless script
       - name: Get Allure history
-              uses: actions/checkout@v2
-              if: always()
-              continue-on-error: true
-              with:
-                  ref: allure
-                  path: allure
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+            ref: allure
+            path: allure
 
-            - name: Generate Allure Report
-              uses: simple-elf/allure-report-action@master
-              if: always()
-              with:
-                  allure_results: allure-results
-                  gh_pages: allure
+      - name: Generate Allure Report
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+            allure_results: allure-results
+            gh_pages: allure
       - name: Upload Results
         uses: actions/upload-artifact@v1
         if: always()
