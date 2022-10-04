@@ -1,4 +1,4 @@
-# Cypress-Cycymber-Allure Test enviroment
+# Cypress-Cucumber-Allure Test enviroment
 
 
 This project demonstrates an example of using the [Cypress framework](https://www.cypress.io/) and [Cucumber](https://cucumber.io/) tools on the site [telenyx.com](https://telnyx.com/).
