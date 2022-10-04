@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "Apache-2.0",
     "scripts": {
-        "test": "node cypress/scripts/runner.js && npm run allure:report",
+        "test": "node cypress/scripts/runner.js",
         "cy:open": "npx cypress open --env allure=true --config specPattern=cypress/e2e/examples/** --browser chrome",
         "cy:cucumber:open": "npx cypress open --env allure=true --config specPattern=cypress/e2e/cucumber/*.feature,excludeSpecPattern=*.js --browser chrome",
         "cy:run": "DEBUG=allure-plugin* npx cypress run --config specPattern=cypress/e2e/examples/* --env allure=true --browser chrome",
