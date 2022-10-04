@@ -18,12 +18,20 @@ jobs:
         run: npx cypress install
       - name: run test
         run: npm run test # Our name of the headless script
-      - name: Copy History
-        if: always()
-        run: cp -r $(pwd)/docs/history/. $(pwd)/allure-results/history
-      - name: Generate Report
-        if: always()
-        run: npm run allure:report # Name of the allure generate script
+      - name: Get Allure history
+              uses: actions/checkout@v2
+              if: always()
+              continue-on-error: true
+              with:
+                  ref: allure
+                  path: allure
+
+            - name: Generate Allure Report
+              uses: simple-elf/allure-report-action@master
+              if: always()
+              with:
+                  allure_results: allure-results
+                  gh_pages: allure
       - name: Upload Results
         uses: actions/upload-artifact@v1
         if: always()
